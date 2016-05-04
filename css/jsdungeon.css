@@ -1,0 +1,14 @@
+.navbar{
+	font-size: 20px;
+}
+
+.navbar-brand{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 20px;
+}
+
+.navbar-nav>li>a{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
