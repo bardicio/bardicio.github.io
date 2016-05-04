@@ -6,11 +6,16 @@
 angular.module('jsdungeon')
   .factory('JSDungeon', function () {
     var dungeon = {};
+    var store = localStorage.getItem("dungeon");
+    if(store){
+        dungeon = JSON.parse(store);
+    };
     var getDungeon = function(){
         return dungeon;
     }
     var setDungeon = function(newdungeon){
         dungeon = newdungeon;
+        localStorage.setItem("dungeon", JSON.stringify(dungeon));
     }
     /*
     var interact = function(somestring){

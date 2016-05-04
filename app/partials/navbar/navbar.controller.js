@@ -7,10 +7,6 @@ angular.module('jsdungeon')
       'link': '#/'
     },
     {
-      'title': 'Play',
-      'link': '#/play'
-    },
-    {
       'title': 'Editor',
       'link': '#/create'
     }
