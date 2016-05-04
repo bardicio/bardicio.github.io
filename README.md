@@ -1,9 +1,9 @@
-# jaaimino.github.io
+# JsDungeon App
 
-My personal site, built as an angular SPA for easing serving from github pages.
+App to build around JsDungeon game engine for creating and playing text adventures.
 
 ## Build & Development ##
 
 Run `bower install` and `npm install`
 
-Run `grunt` to host a local http dev server
+Run `gulp` to host a local http dev server
