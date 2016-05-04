@@ -29,7 +29,7 @@ angular.module('jsdungeon')
 	}
 
 	var onComplete = function(data) {
-		$scope.$evalAsync(function(scope) {
+		$scope.$apply(function(scope) {
 			$scope.dungeon = data;
 		    JSDungeon.setDungeon($scope.dungeon);
 		    console.log(data);
