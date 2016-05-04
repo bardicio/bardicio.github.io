@@ -1,8 +1,38 @@
 <div ng-include="'app/partials/navbar/navbar.html'"></div>
 <div ng-include="'app/partials/header/header.html'"></div>
 <div class="container">
-  <div class="col-md-offset-1 col-md-10">
-      <h1 class="page-header text-center">Create</h1>
+  <div class="row">
+	  <div class="col-md-offset-1 col-md-10">
+	      <h1 class="page-header text-center">Create</h1>
+	  </div>
+  </div>
+  <div class="row">
+  	<div class="col-md-offset-1 col-md-10">
+  		<h2>Rooms</h2>
+  		<uib-accordion close-others="false">
+	  		<uib-accordion-group heading="{{room.name}}" ng-repeat="(key, room) in dungeon.rooms">
+	  			<p></p>
+	  			<uib-accordion>
+		  			<uib-accordion-group heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
+		  				<uib-accordion>
+			  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
+			  					<p>{{state.description}}</p>
+			  				</uib-accordion-group>
+		  				</uib-accordion>
+		  			</uib-accordion-group>
+	  			</uib-accordion>
+	  		</uib-accordion-group>
+  		</uib-accordion>
+  		<h2>Items</h2>
+  		<uib-accordion>
+	  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, item) in dungeon.items">
+	  			<uib-accordion>
+	  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states">
+	  					<p>{{state.description}}</p>
+	  				</uib-accordion-group>
+	  		</uib-accordion-group>
+  		</uib-accordion>
+  	</div>
   </div>
 </div>
 <div ng-include="'app/partials/footer/footer.html'"></div>
