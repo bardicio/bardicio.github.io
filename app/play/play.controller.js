@@ -32,7 +32,7 @@ angular.module('jsdungeon')
 		$scope.$evalAsync(function(scope) {
 			$scope.dungeon = data;
 		    JSDungeon.setDungeon($scope.dungeon);
-		    console.log($scope.dungeon);
+		    console.log(data);
 		});
 		
 	}
