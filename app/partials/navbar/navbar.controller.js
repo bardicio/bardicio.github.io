@@ -11,7 +11,7 @@ angular.module('jsdungeon')
       'link': '#/play'
     },
     {
-      'title': 'Create',
+      'title': 'Editor',
       'link': '#/create'
     }
     ];

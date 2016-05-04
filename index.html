@@ -13,7 +13,7 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
 
 
     <link rel="stylesheet" href="css/superhero.min.css" />
@@ -24,8 +24,9 @@
     <link rel="stylesheet" href="app/main/main.css">
     <link rel="stylesheet" href="app/play/play.css">
     <link rel="stylesheet" href="app/projects/projects.css">
-    <link rel="stylesheet" href="components/header/header.css">
-    <link rel="stylesheet" href="components/footer/footer.css">
+
+    <link rel="stylesheet" href="app/partials/header/header.css">
+    <link rel="stylesheet" href="app/partials/footer/footer.css">
   </head>
   <body ng-app="jsdungeon">
     <!--[if lt IE 7]>
@@ -72,14 +73,14 @@
     <script src="app/create/create.controller.js"></script>
     <script src="app/create/create.js"></script>
 
+    <script src="components/jsdungeon/jsdungeon.service.js"></script>
+
     <script src="app/projects/projects.controller.js"></script>
     <script src="app/projects/projects.js"></script>
     <script src="components/projects/projects.service.js"></script>
 
-    <script src="components/navbar/navbar.controller.js"></script>
-    <script src="components/header/header.controller.js"></script>
-    <script src="components/title/title.controller.js"></script>
-    <script src="components/footer/footer.controller.js"></script>
-
+    <script src="app/partials/navbar/navbar.controller.js"></script>
+    <script src="app/partials/header/header.controller.js"></script>
+    <script src="app/partials/footer/footer.controller.js"></script>
 </body>
 </html>

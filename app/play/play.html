@@ -1,8 +1,21 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-<div ng-include="'components/header/header.html'"></div>
+<div ng-include="'app/partials/navbar/navbar.html'"></div>
+<div ng-include="'app/partials/header/header.html'"></div>
 <div class="container">
-  <div class="col-md-offset-1 col-md-10">
-      <h1 class="page-header text-center">Play</h1>
-  </div>
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<h1 class="page-header text-center">Play</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p>{{file.name}}</p>
+			<span class="btn btn-default btn-file">
+			    Browse <input type="file" onchange="angular.element(this).scope().setFiles(this)" name="file">
+			</span>
+			<input type='button' value='Open' class="btn btn-default" ng-click='handleFileSelect()'>
+			<input type='button' value='Save' class="btn btn-default" ng-click='saveFile()'>
+			<p>{{dungeon.intro_text}}</p>
+		</div>
+	</div>
 </div>
-<div ng-include="'components/footer/footer.html'"></div>
+<div ng-include="'app/partials/footer/footer.html'"></div>
