@@ -1,0 +1,22 @@
+{
+    "dungeons" : [
+        {
+            "name" : "The Mansion",
+            "filename" : "dungeons/mansion.json"
+        },
+        {
+            "name" : "The Woods",
+            "filename" : "dungeons/woods.json"
+        },
+        {
+            "name" : "Plane Trip",
+            "filename" : "dungeons/plane.json"
+        },
+        {
+            "name" : "Test",
+            "filename" : "dungeons/test.json"
+
+        }
+
+    ]
+}

@@ -1,0 +1,18 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-include="'components/header/header.html'"></div>
+<div class="container">
+  <div id="project-gallery" class="col-lg-12">
+      <div class="page-header text-center">
+        <h1>My Projects<small></small></h1>
+      </div>
+      <div class="row">
+        <div ng-repeat="project in projects | orderBy:index:true" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 thumb">
+            <a analytics-on target="{{project.target}}" href="{{project.link}}">
+                <img class="img img-responsive project-preview img-center" ng-src="{{project.img}}" alt="{{project.name}}">
+            </a>
+            <h4 class="text-center">{{project.name}}</h4>
+        </div>
+      </div>
+  </div>
+</div>
+<div ng-include="'components/footer/footer.html'"></div>

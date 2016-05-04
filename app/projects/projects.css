@@ -1,0 +1,28 @@
+#project-gallery {
+    margin-bottom: 50px;
+}
+
+.project-gallery{
+    padding:0 0 0 0;
+    margin:0 0 0 0;
+}
+
+.project-preview{
+    //border: 1px solid white;
+    opacity: 0.85;
+    padding: 10px;
+    margin-top:5px;
+    margin-bottom:5px;
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.project-preview:hover{
+    //border: 1px solid black;
+    opacity: 1.0;
+}
+
+.project-preview:active{
+    //border: 1px solid black;
+    opacity: 1.0;
+}
