@@ -6,27 +6,36 @@ angular.module('jsdungeon')
 	$scope.file = {
 		name:"None"
 	};
-
 	var fr = new FileReader();
 	$scope.setFiles = function(fileinput){
-		$scope.$apply(function(scope) {
-		    $scope.file = fileinput.files[0];
+		$scope.$evalAsync(function(scope) {
+		    var file = fileinput.files[0];
+			if(file){
+				fr.onload = function(){
+					onComplete(JSON.parse(fr.result));
+				};
+				fr.readAsText(file);
+				//fr.readAsDataURL(file);
+			}
 		});
 	}
-	$scope.handleFileSelect = function(){
-		if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-			alert('The File APIs are not fully supported in this browser.');
-			return;
-		} else {
-			fr.onload = receivedText;
-			fr.readAsText($scope.file);
-			//fr.readAsDataURL(file);
-		}
+
+	$scope.importFile = function(){
+		$http.get($scope.fileUrl).then(
+		function(data){
+			onComplete(data.data);
+		},
+		function(data){
+			console.log("errrrr");
+		})
 	}
-	var receivedText = function() {
-		$scope.$apply(function(scope) {
-			$scope.dungeon = JSON.parse(fr.result);
+
+	var onComplete = function(data) {
+		$scope.$evalAsync(function(scope) {
+			$scope.dungeon = data;
 		    JSDungeon.setDungeon($scope.dungeon);
+		    console.log($scope.dungeon);
 		});
+		
 	}
 });
