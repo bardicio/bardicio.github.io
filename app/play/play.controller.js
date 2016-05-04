@@ -21,6 +21,7 @@ angular.module('jsdungeon')
 	$scope.importFile = function(){
 		$http.get($scope.fileUrl).then(
 		function(data){
+			console.log("get success");
 			onComplete(data.data);
 		},
 		function(data){
