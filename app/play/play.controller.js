@@ -8,16 +8,14 @@ angular.module('jsdungeon')
 	};
 	var fr = new FileReader();
 	$scope.setFiles = function(fileinput){
-		$scope.$evalAsync(function(scope) {
-		    var file = fileinput.files[0];
-			if(file){
-				fr.onload = function(){
-					onComplete(JSON.parse(fr.result));
-				};
-				fr.readAsText(file);
-				//fr.readAsDataURL(file);
-			}
-		});
+	    var file = fileinput.files[0];
+		if(file){
+			fr.onload = function(){
+				onComplete(JSON.parse(fr.result));
+			};
+			fr.readAsText(file);
+			//fr.readAsDataURL(file);
+		};
 	}
 
 	$scope.importFile = function(){
