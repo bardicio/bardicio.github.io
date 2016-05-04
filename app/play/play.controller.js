@@ -21,7 +21,7 @@ angular.module('jsdungeon')
 	$scope.importFile = function(){
 		$http.get($scope.fileUrl).then(
 		function(data){
-			console.log("get success");
+			console.log("Get success");
 			onComplete(data.data);
 		},
 		function(data){
@@ -30,7 +30,7 @@ angular.module('jsdungeon')
 	}
 
 	var onComplete = function(data) {
-		$scope.$apply(function(scope) {
+		$scope.$evalAsync(function(scope) {
 			$scope.dungeon = data;
 		    JSDungeon.setDungeon($scope.dungeon);
 		    console.log(data);
