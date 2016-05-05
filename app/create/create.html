@@ -45,7 +45,7 @@
   	<div class="col-md-offset-1 col-md-10">
   		<uib-tabset class="create-tab" type="pills">
 			<uib-tab index="0" heading="Rooms">
-		  		<uib-accordion close-others="false">
+		  		<uib-accordion close-others="false" ng-if="$parent.$parent.active === $parent.$parent.index">
 			  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, room) in dungeon.rooms"
 			  		template-url="app/templates/accordioncustom.html">
 			  			<h3>Name</h3>
@@ -57,14 +57,14 @@
 			  			<button class="btn btn-sm btn-warning pull-right" ng-click="disabled = !disabled">
 			  				<i class="glyphicon glyphicon-edit"></i>
 			  			</button></h3>
-	  					<select class="form-control" ng-model="room.items" ng-disabled="disabled" multiple>
+	  					<select class="form-control" ng-if="$parent.isOpen" ng-model="room.items" ng-disabled="disabled" multiple>
 		  					<option ng-repeat="(itkey, room) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
-		  				</select>
+		  				</select><br>
 			  			<h3 uib-popover="The objects in your room" popover-trigger="mouseenter"
 			  			ng-show="room.objects">Objects</h3>
-			  			<uib-accordion-group heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
+			  			<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
 			  				<h3>States</h3>
-			  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
+			  				<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
 			  					<h4>Description</h4>
 			  					<textarea class="form-control" ng-model="state.description"></textarea>
 			  					<h4>Examination</h4>
@@ -73,7 +73,7 @@
 			  			</uib-accordion-group>
 			  			<h3 uib-popover="The exits to other rooms" popover-trigger="mouseenter"
 			  			ng-show="room.exits">Exits</h3>
-			  			<uib-accordion-group heading="{{exkey}}" ng-repeat="(exkey, exit) in room.exits">
+			  			<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{exkey}}" ng-repeat="(exkey, exit) in room.exits">
 			  				<h3>Destination</h3>
 			  				<select class="form-control" ng-model="exit.destination">
 			  					<option ng-repeat="(key, room) in dungeon.rooms" value="{{key}}">{{room.name}}</option>
@@ -90,7 +90,7 @@
 		  		</uib-accordion>
 		  	</uib-tab>
 			<uib-tab index="1" heading="Items">
-		  		<uib-accordion close-others="false">
+		  		<uib-accordion close-others="false" ng-if="$parent.$parent.active === $parent.$parent.index">
 			  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, item) in dungeon.items"
 			  		template-url="app/templates/accordioncustom.html">
 			  			<h3>States</h3>
@@ -104,6 +104,9 @@
 		  		</uib-accordion>
 		  	</uib-tab>
   		</uib-tabset>
+  		<button class="btn btn-success btn-lg" ng-click="saveTemplate()">
+  		<i class="glyphicon glyphicon-floppy-saved"></i> Save
+  		</button>
   	</div>
   </div>
 </div>
