@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jsdungeon')
-  .controller('MainCtrl', function ($scope, $http, JSDungeon) {
+  .controller('MainCtrl', function ($scope, $http, $location, JSDungeon) {
   	$scope.dungeon = JSDungeon.getDungeon();
 	$scope.file = {
 		name:"None"
@@ -15,7 +15,7 @@ angular.module('jsdungeon')
 			};
 			fr.readAsText(file);
 			//fr.readAsDataURL(file);
-		};
+		}
 	}
 
 	$scope.importFile = function(){
@@ -34,8 +34,14 @@ angular.module('jsdungeon')
 	var onComplete = function(data) {
 		$scope.$evalAsync(function(scope) {
 			$scope.dungeon = data;
+		    JSDungeon.setDungeonTemplate(JSON.parse(JSON.stringify($scope.dungeon)));
 		    JSDungeon.setDungeon($scope.dungeon);
-		    console.log(data);
 		});
+	}
+
+	$scope.startGame = function(){
+		$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
+		JSDungeon.setDungeon($scope.dungeon);
+		$location.path("/play");
 	}
   });

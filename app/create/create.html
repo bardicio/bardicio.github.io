@@ -8,41 +8,42 @@
   </div>
   <div class="row">
   	<div class="col-md-offset-1 col-md-10">
-  		<h2>Rooms</h2>
-  		<uib-accordion close-others="false">
-	  		<uib-accordion-group heading="{{room.name}}" ng-repeat="(key, room) in dungeon.rooms">
-	  			<h3 uib-popover="The description you'll see when entering a room" 
-	  			popover-trigger="mouseenter">Description</h3>
-	  			<textarea rows="3" class="form-control">{{room.description}}</textarea>
-	  			<h3 uib-popover="The objects in your room" popover-trigger="mouseenter"
-	  			ng-show="room.objects">Objects</h3>
-	  			<uib-accordion>
-		  			<uib-accordion-group heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
-		  				<h3>States</h3>
-		  				<uib-accordion>
-			  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
+  		<div class="row">
+	  		<uib-tabset type="pills">
+				<uib-tab index="0" heading="Rooms">
+			  		<uib-accordion close-others="false">
+				  		<uib-accordion-group heading="{{room.name}}"  ng-repeat="(key, room) in dungeon.rooms">
+				  			<h3 uib-popover="The description you'll see when entering a room" 
+				  			popover-trigger="mouseenter">Description</h3>
+				  			<textarea rows="3" class="form-control">{{room.description}}</textarea>
+				  			<h3 uib-popover="The objects in your room" popover-trigger="mouseenter"
+				  			ng-show="room.objects">Objects</h3>
+				  			<uib-accordion-group heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
+				  				<h3>States</h3>
+				  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
+				  					<h4>Description</h4>
+				  					<textarea class="form-control">{{state.description}}</textarea>
+				  					<h4>Examination</h4>
+				  					<textarea class="form-control">{{state.examination}}</textarea>
+				  				</uib-accordion-group>
+				  			</uib-accordion-group>
+				  		</uib-accordion-group>
+			  		</uib-accordion>
+			  	</uib-tab>
+				<uib-tab index="1" heading="Items">
+			  		<uib-accordion close-others="false">
+				  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, item) in dungeon.items">
+			  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states">
 			  					<h4>Description</h4>
 			  					<textarea class="form-control">{{state.description}}</textarea>
 			  					<h4>Examination</h4>
-			  					<textarea class="form-control">{{state.examination}}</textarea>
+					  			<textarea class="form-control">{{state.examination}}</textarea>
 			  				</uib-accordion-group>
-		  				</uib-accordion>
-		  			</uib-accordion-group>
-	  			</uib-accordion>
-	  		</uib-accordion-group>
-  		</uib-accordion>
-  		<h2>Items</h2>
-  		<uib-accordion>
-	  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, item) in dungeon.items">
-	  			<uib-accordion>
-	  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states">
-	  					<h4>Description</h4>
-	  					<textarea class="form-control">{{state.description}}</textarea>
-	  					<h4>Examination</h4>
-			  			<textarea class="form-control">{{state.examination}}</textarea>
-	  				</uib-accordion-group>
-	  		</uib-accordion-group>
-  		</uib-accordion>
+			  			</uib-accordion-group>
+			  		</uib-accordion>
+			  	</uib-tab>
+	  		</uib-tabset>
+	  	</div>
   	</div>
   </div>
 </div>

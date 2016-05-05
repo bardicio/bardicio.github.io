@@ -2,5 +2,5 @@
 
 angular.module('jsdungeon')
   .controller('CreateCtrl', function ($scope, $http, JSDungeon) {
-  	$scope.dungeon = JSDungeon.getDungeon();
+  	$scope.dungeon = JSDungeon.getDungeonTemplate();
   });
