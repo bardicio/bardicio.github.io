@@ -1,5 +1,6 @@
 .navbar{
 	font-size: 18px;
+    background-color: #2C3133;
 }
 
 .navbar-brand{
@@ -31,4 +32,10 @@
     background: white;
     cursor: inherit;
     display: block;
+}
+
+.nav-pills>li.active>a, 
+.nav-pills>li.active>a:hover, 
+.nav-pills>li.active>a:focus{
+    background-color:#485563;
 }
