@@ -5,29 +5,25 @@
 		height: 100%;
 	}
 	body{
+		height:100%;
 		background:url({{dungeon.background}});
 		background-size: cover;
 		background-repeat: no-repeat;
 		min-height: 100%;
+		max-height: 100%;
 	}
 </style>
-<div class="container">
-	<div class="row">
-		<div class="col-md-offset-1 col-md-10">
 
+<div id="box">
+	<h2 class="text-center">{{dungeon.name}}</h2>
+	<p class="output-box" ng-bind-html="output" scroll-glue></p>
+	<form ng-submit="interact()">
+		<div class="input-group">
+			<input type='text' class="form-control" ng-model="input">
+			<span class="input-group-btn">
+			<button type='submit' class="btn btn-default">Send</button>
+			</span>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-		<div class="panel">
-		<div class="panel-heading">
-			<h2 class="text-center">{{dungeon.name}}</h2>
-		</div>
-		<div class="panel-body">
-			<p class="">{{dungeon.intro_text}}</p>
-		</div>
-		</div>
-		</div>
-	</div>
+	</form>
 </div>
 <div ng-include="'app/partials/footer/footer.html'"></div>

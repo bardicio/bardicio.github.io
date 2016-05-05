@@ -37,6 +37,5 @@ angular.module('jsdungeon')
 		    JSDungeon.setDungeon($scope.dungeon);
 		    console.log(data);
 		});
-		
 	}
   });

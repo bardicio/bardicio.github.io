@@ -17,14 +17,15 @@ angular.module('jsdungeon')
         dungeon = newdungeon;
         localStorage.setItem("dungeon", JSON.stringify(dungeon));
     }
-    /*
+    
     var interact = function(somestring){
-        return dungeon.interact(somestring);
+        return jsdungeon.interact(somestring);
     }
-    */
+    
     // Public API here
     return {
         getDungeon : getDungeon,
-        setDungeon : setDungeon
+        setDungeon : setDungeon,
+        interact : interact
     };
   });

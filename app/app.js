@@ -7,7 +7,8 @@ angular.module('jsdungeon', [
   'ui.router',
   'ui.bootstrap',
   'angulartics',
-  'angulartics.google.analytics'
+  'angulartics.google.analytics',
+  'luegg.directives'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
