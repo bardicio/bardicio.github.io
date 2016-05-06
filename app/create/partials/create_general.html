@@ -1,0 +1,31 @@
+<uib-accordion class="create-tab" close-others="false">
+	<uib-accordion-group heading="General">
+	  	<h3>Name</h3>
+		<input type="text" class="form-control" ng-model="dungeon.name">
+		<h3>Author</h3>
+		<input type="text" class="form-control" ng-model="dungeon.author">
+		<h3>Background</h3>
+		<input type="text" class="form-control" ng-model="dungeon.background">
+	</uib-accordion-group>
+	<uib-accordion-group heading="Setup">
+	  	<h3>Intro Text</h3>
+		<textarea rows="5" type="text" class="form-control" ng-model="dungeon.intro_text"></textarea>
+		<h3>Starting Room</h3>
+		<select class="form-control" ng-model="dungeon.start_room">
+			<option ng-repeat="(rmkey, room) in dungeon.rooms" value="{{rmkey}}">{{room.name}}</option>
+		</select>
+		<br>
+		<uib-accordion-group heading="Player">
+			<h3>Name</h3>
+			<input type="text" class="form-control" ng-model="dungeon.player.name">
+			<h3>Description</h3>
+			<textarea rows="5" type="text" class="form-control" ng-model="dungeon.player.description"></textarea>
+			<h3>Inventory<button class="btn btn-sm btn-warning pull-right" ng-click="disabled = !disabled">
+  				<i class="glyphicon glyphicon-edit"></i>
+  			</button></h3>
+			<select class="form-control" ng-model="dungeon.player.inventory" ng-disabled="disabled" multiple>
+				<option ng-repeat="(itkey, room) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
+			</select>
+		</uib-accordion-group>
+	</uib-accordion-group>
+</uib-accordion>

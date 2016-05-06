@@ -8,101 +8,18 @@
   </div>
   <div class="row">
   	<div class="col-md-offset-1 col-md-10">
-  		<uib-accordion class="create-tab" close-others="false">
-  			<uib-accordion-group heading="General">
-  			  	<h3>Name</h3>
-  				<input type="text" class="form-control" ng-model="dungeon.name">
-  				<h3>Author</h3>
-  				<input type="text" class="form-control" ng-model="dungeon.author">
-  				<h3>Background</h3>
-  				<input type="text" class="form-control" ng-model="dungeon.background">
-  			</uib-accordion-group>
-  			<uib-accordion-group heading="Setup">
-  			  	<h3>Intro Text</h3>
-  				<textarea rows="5" type="text" class="form-control" ng-model="dungeon.intro_text"></textarea>
-  				<h3>Starting Room</h3>
-  				<select class="form-control" ng-model="dungeon.start_room">
-  					<option ng-repeat="(rmkey, room) in dungeon.rooms" value="{{rmkey}}">{{room.name}}</option>
-  				</select>
-  				<br>
-  				<uib-accordion-group heading="Player">
-	  				<h3>Name</h3>
-	  				<input type="text" class="form-control" ng-model="dungeon.player.name">
-	  				<h3>Description</h3>
-  					<textarea rows="5" type="text" class="form-control" ng-model="dungeon.player.description"></textarea>
-  					<h3>Inventory<button class="btn btn-sm btn-warning pull-right" ng-click="disabled = !disabled">
-			  				<i class="glyphicon glyphicon-edit"></i>
-			  			</button></h3>
-  					<select class="form-control" ng-model="dungeon.player.inventory" ng-disabled="disabled" multiple>
-	  					<option ng-repeat="(itkey, room) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
-	  				</select>
-  				</uib-accordion-group>
-  			</uib-accordion-group>
-  		</uib-accordion>
+  		<div ng-include="'app/create/partials/create_general.html'"></div>
   	</div>
   </div>
   <div class="row">
   	<div class="col-md-offset-1 col-md-10">
   		<uib-tabset class="create-tab" type="pills">
-			<uib-tab index="0" heading="Rooms">
-		  		<uib-accordion close-others="false" ng-if="$parent.$parent.active === $parent.$parent.index">
-			  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, room) in dungeon.rooms"
-			  		template-url="app/templates/accordioncustom.html">
-			  			<h3>Name</h3>
-			  			<input type="text" ng-model="room.name" class="form-control">
-			  			<h3 uib-popover="The description you'll see when entering a room" 
-			  			popover-trigger="mouseenter">Description</h3>
-			  			<textarea rows="3" class="form-control" ng-model="room.description"></textarea>
-			  			<h3>Items 
-			  			<button class="btn btn-sm btn-warning pull-right" ng-click="disabled = !disabled">
-			  				<i class="glyphicon glyphicon-edit"></i>
-			  			</button></h3>
-	  					<select class="form-control" ng-if="$parent.isOpen" ng-model="room.items" ng-disabled="disabled" multiple>
-		  					<option ng-repeat="(itkey, room) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
-		  				</select><br>
-			  			<h3 uib-popover="The objects in your room" popover-trigger="mouseenter"
-			  			ng-show="room.objects">Objects</h3>
-			  			<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects">
-			  				<h3>States</h3>
-			  				<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{stkey}}" ng-repeat="(stkey, state) in object.states">
-			  					<h4>Description</h4>
-			  					<textarea class="form-control" ng-model="state.description"></textarea>
-			  					<h4>Examination</h4>
-			  					<textarea class="form-control" ng-model="state.examination"></textarea>
-			  				</uib-accordion-group>
-			  			</uib-accordion-group>
-			  			<h3 uib-popover="The exits to other rooms" popover-trigger="mouseenter"
-			  			ng-show="room.exits">Exits</h3>
-			  			<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{exkey}}" ng-repeat="(exkey, exit) in room.exits">
-			  				<h3>Destination</h3>
-			  				<select class="form-control" ng-model="exit.destination">
-			  					<option ng-repeat="(key, room) in dungeon.rooms" value="{{key}}">{{room.name}}</option>
-			  				</select>
-			  				<h3>States</h3>
-			  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in exit.states">
-			  					<h4>Description</h4>
-			  					<textarea class="form-control" ng-model="state.description"></textarea>
-			  					<h4>Examination</h4>
-			  					<textarea class="form-control" ng-model="state.examination"></textarea>
-			  				</uib-accordion-group>
-			  			</uib-accordion-group>
-			  		</uib-accordion-group>
-		  		</uib-accordion>
-		  	</uib-tab>
-			<uib-tab index="1" heading="Items">
-		  		<uib-accordion close-others="false" ng-if="$parent.$parent.active === $parent.$parent.index">
-			  		<uib-accordion-group heading="{{key}}" ng-repeat="(key, item) in dungeon.items"
-			  		template-url="app/templates/accordioncustom.html">
-			  			<h3>States</h3>
-		  				<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states">
-		  					<h4>Description</h4>
-		  					<textarea class="form-control" ng-model="state.description"></textarea>
-		  					<h4>Examination</h4>
-				  			<textarea class="form-control" ng-model="state.examination"></textarea>
-		  				</uib-accordion-group>
-		  			</uib-accordion-group>
-		  		</uib-accordion>
-		  	</uib-tab>
+  			<uib-tab index="0" heading="Rooms">
+  				<div ng-include="'app/create/partials/create_rooms.html'"></div>
+  			</uib-tab>
+  			<uib-tab index="1" heading="Items">
+  				<div ng-include="'app/create/partials/create_items.html'"></div>
+  			</uib-tab>
   		</uib-tabset>
   		<button class="btn btn-success btn-lg" ng-click="saveTemplate()">
   		<i class="glyphicon glyphicon-floppy-saved"></i> Save
