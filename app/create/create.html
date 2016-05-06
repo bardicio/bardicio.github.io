@@ -3,21 +3,19 @@
 <div class="container">
   <div class="row">
 	  <div class="col-md-offset-1 col-md-10">
-	      <h1 class="page-header text-center">{{dungeon.name}}</h1>
+	      <h1 class="page-header text-center">{{dungeon.name}} by {{dungeon.author}}</h1>
 	  </div>
   </div>
   <div class="row">
   	<div class="col-md-offset-1 col-md-10">
-  		<div ng-include="'app/create/partials/create_general.html'"></div>
-  	</div>
-  </div>
-  <div class="row">
-  	<div class="col-md-offset-1 col-md-10">
   		<uib-tabset class="create-tab" type="pills">
-  			<uib-tab index="0" heading="Rooms">
+  			<uib-tab index="0" heading="General">
+  				<div ng-include="'app/create/partials/create_general.html'"></div>
+  			</uib-tab>
+  			<uib-tab index="1" heading="Rooms">
   				<div ng-include="'app/create/partials/create_rooms.html'"></div>
   			</uib-tab>
-  			<uib-tab index="1" heading="Items">
+  			<uib-tab index="2" heading="Items">
   				<div ng-include="'app/create/partials/create_items.html'"></div>
   			</uib-tab>
   		</uib-tabset>
