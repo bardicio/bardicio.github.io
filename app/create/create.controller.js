@@ -11,4 +11,22 @@ angular.module('jsdungeon')
   		delete $scope.dungeon.rooms[key];
   		JSDungeon.setDungeonTemplate($scope.dungeon);
   	}
+    $scope.download = function() {
+        var name = $scope.dungeon.name.toLowerCase();
+        name = name.replace(" ", "_");
+        var filename = name + ".dungeon";
+        var text = JSON.stringify($scope.dungeon);
+        var pom = document.createElement('a');
+        pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        pom.setAttribute('download', filename);
+
+        if (document.createEvent) {
+            var event = document.createEvent('MouseEvents');
+            event.initEvent('click', true, true);
+            pom.dispatchEvent(event);
+        }
+        else {
+            pom.click();
+        }
+    }
   });

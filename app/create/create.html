@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
 	  <div class="col-md-offset-1 col-md-10">
-	      <h1 class="page-header text-center">{{dungeon.name}} by {{dungeon.author}}</h1>
+	      <h1 class="page-header text-center">{{dungeon.name}} <small>by {{dungeon.author}}</small></h1>
 	  </div>
   </div>
   <div class="row">
@@ -21,6 +21,9 @@
   		</uib-tabset>
   		<button class="btn btn-success btn-lg" ng-click="saveTemplate()">
   		<i class="glyphicon glyphicon-floppy-saved"></i> Save
+  		</button>
+  		<button class="btn btn-warning btn-lg" ng-click="download()">
+  		<i class="glyphicon glyphicon-floppy-save"></i> Download
   		</button>
   	</div>
   </div>
