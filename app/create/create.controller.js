@@ -39,6 +39,35 @@ angular.module('jsdungeon')
         return;
       }
       $scope.dungeon.rooms[roomid] = {};
+      $scope.dungeon.rooms[roomid].objects = {};
+      $scope.dungeon.rooms[roomid].exits = {};
       $scope.newRoom.newroomid = "";
+    }
+    
+    $scope.addObject = function(key){
+      var objID = $scope.newRoom.newobjectid;
+      if(objID == "" || !objID){
+        return;
+      }
+      $scope.dungeon.rooms[key].objects[objID] = {};
+      $scope.dungeon.rooms[key].objects[objID].states = 
+      {
+        "default":{}
+      };
+      $scope.newRoom.newobjectid = "";
+    }
+     
+    $scope.addExit = function(key){
+      var exitID = $scope.newRoom.newexitid;
+      if(exitID =="" || !exitID){
+        return;
+      }
+      $scope.dungeon.rooms[key].exits[exitID] = {};
+      $scope.dungeon.rooms[key].exits[exitID].states = 
+      {
+        "default":{}
+      };
+      $scope.newRoom.newexitid = "";
+      
     }
   });

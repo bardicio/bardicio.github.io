@@ -24,6 +24,14 @@
 				<textarea class="form-control" ng-model="state.examination"></textarea>
 			</uib-accordion-group>
 		</uib-accordion-group>
+		<uib-accordion-group template-url="app/create/templates/accordionaddnew.html">
+		<form ng-submit="addObject(key); $parent.isOpen = !$parent.isOpen">
+			<h4>Object Id</h4>
+			<input type="text" ng-model="newRoom.newobjectid" class="form-control" /><br>
+			<input type="submit"  value="Save" class="btn btn-success" />
+		</form>
+		</uib-accordion-group>
+	
 		<h3 uib-popover="The exits to other rooms" popover-trigger="mouseenter"
 		ng-show="room.exits">Exits</h3>
 		<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{exkey}}" ng-repeat="(exkey, exit) in room.exits">
@@ -38,6 +46,13 @@
 				<h4>Examination</h4>
 				<textarea class="form-control" ng-model="state.examination"></textarea>
 			</uib-accordion-group>
+		</uib-accordion-group>
+		<uib-accordion-group template-url="app/create/templates/accordionaddnew.html">
+		<form ng-submit="addExit(key); $parent.isOpen = !$parent.isOpen">
+			<h4>Exit Id</h4>
+			<input type="text" ng-model="newRoom.newexitid" class="form-control" /><br>
+			<input type="submit"  value="Save" class="btn btn-success" />
+		</form>
 		</uib-accordion-group>
 	</uib-accordion-group>
 	<uib-accordion-group template-url="app/create/templates/accordionaddnew.html">
