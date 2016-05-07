@@ -39,6 +39,12 @@ angular.module('jsdungeon')
 		});
 	}
 
+	$scope.newDungeon = function(){
+		JSDungeon.setDungeonTemplate(JSON.parse(JSON.stringify({})));
+		JSDungeon.setDungeon({});
+		$location.path("/create");
+	}
+
 	$scope.startGame = function(){
 		$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
 		JSDungeon.setDungeon($scope.dungeon);
