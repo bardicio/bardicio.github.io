@@ -54,6 +54,7 @@ angular.module('jsdungeon')
       {
         "default":{}
       };
+      $scope.dungeon.rooms[key].objects[objID].current_state = "default";
       $scope.newRoom.newobjectid = "";
     }
      
@@ -67,7 +68,7 @@ angular.module('jsdungeon')
       {
         "default":{}
       };
+      $scope.dungeon.rooms[key].exits[exitID].current_state = "default";
       $scope.newRoom.newexitid = "";
-      
     }
   });
