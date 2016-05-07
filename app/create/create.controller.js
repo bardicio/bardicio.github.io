@@ -9,7 +9,6 @@ angular.module('jsdungeon')
   	}
   	$scope.deleteRoom = function(key){
   		delete $scope.dungeon.rooms[key];
-  		JSDungeon.setDungeonTemplate($scope.dungeon);
   	}
     $scope.download = function() {
         var name = $scope.dungeon.name.toLowerCase();
@@ -28,5 +27,18 @@ angular.module('jsdungeon')
         else {
             pom.click();
         }
+    }
+
+    /* 
+     * Adding new rooms, objects, etc. below
+     */
+    $scope.newRoom = {};
+    $scope.addRoom = function(){
+      var roomid = $scope.newRoom.newroomid;
+      if(roomid == "" || !roomid){
+        return;
+      }
+      $scope.dungeon.rooms[roomid] = {};
+      $scope.newRoom.newroomid = "";
     }
   });

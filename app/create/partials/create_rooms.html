@@ -1,6 +1,6 @@
 <uib-accordion close-others="false" ng-if="$parent.$parent.$parent.active === $parent.$parent.index">
 	<uib-accordion-group heading="{{key}}" ng-repeat="(key, room) in dungeon.rooms"
-	template-url="app/templates/accordioncustom.html">
+	template-url="app/create/templates/accordioncustom.html">
 		<h3>Name</h3>
 		<input type="text" ng-model="room.name" class="form-control">
 		<h3 uib-popover="The description you'll see when entering a room" 
@@ -39,5 +39,12 @@
 				<textarea class="form-control" ng-model="state.examination"></textarea>
 			</uib-accordion-group>
 		</uib-accordion-group>
+	</uib-accordion-group>
+	<uib-accordion-group heading="+" template-url="app/create/templates/accordionaddnew.html">
+		<form ng-submit="addRoom(); $parent.isOpen = !$parent.isOpen">
+			<h4>Room Id</h4>
+			<input type="text" ng-model="newRoom.newroomid" class="form-control" /><br>
+			<input type="submit"  value="Save" class="btn btn-success" />
+		</form>
 	</uib-accordion-group>
 </uib-accordion>
