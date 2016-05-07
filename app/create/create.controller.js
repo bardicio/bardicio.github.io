@@ -6,6 +6,8 @@ angular.module('jsdungeon')
   	$scope.disabled = true; //Set all ng-disabled to true by default
   	$scope.saveTemplate = function(){
   		JSDungeon.setDungeonTemplate($scope.dungeon);
+  		$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
+		  JSDungeon.setDungeon($scope.dungeon);
   	}
   	$scope.deleteRoom = function(key){
   		delete $scope.dungeon.rooms[key];
