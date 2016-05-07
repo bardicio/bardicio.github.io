@@ -34,6 +34,9 @@ angular.module('jsdungeon')
      */
     $scope.newRoom = {};
     $scope.addRoom = function(){
+      if(!$scope.dungeon.rooms){
+        $scope.dungeon.rooms = {};
+      }
       var roomid = $scope.newRoom.newroomid;
       if(roomid == "" || !roomid){
         return;
@@ -45,6 +48,9 @@ angular.module('jsdungeon')
     }
     
     $scope.addObject = function(key){
+      if(!$scope.dungeon.rooms[key].objects){
+        $scope.dungeon.rooms[key].objects = {};
+      }
       var objID = $scope.newRoom.newobjectid;
       if(objID == "" || !objID){
         return;
@@ -59,6 +65,9 @@ angular.module('jsdungeon')
     }
      
     $scope.addExit = function(key){
+      if(!$scope.dungeon.rooms[key].exits){
+        $scope.dungeon.rooms[key].exits = {};
+      }
       var exitID = $scope.newRoom.newexitid;
       if(exitID =="" || !exitID){
         return;
