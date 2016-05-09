@@ -49,21 +49,34 @@ angular.module('jsdungeon')
       $scope.newRoom.newroomid = "";
     }
     
-    $scope.addObject = function(key){
-      if(!$scope.dungeon.rooms[key].objects){
-        $scope.dungeon.rooms[key].objects = {};
-      }
-      var objID = $scope.newRoom.newobjectid;
-      if(objID == "" || !objID){
+    $scope.addItem = function(){
+      var itemId = $scope.newRoom.newitemid;
+      if(itemId == "" || !itemId){
         return;
       }
-      $scope.dungeon.rooms[key].objects[objID] = {};
-      $scope.dungeon.rooms[key].objects[objID].states = 
+      $scope.dungeon.items[itemId] = {};
+      $scope.dungeon.items[itemId].states = 
       {
         "default":{}
       };
-      $scope.dungeon.rooms[key].objects[objID].current_state = "default";
-      $scope.newRoom.newobjectid = "";
+      $scope.dungeon.items[itemId].current_state = "default";
+      $scope.newRoom.newitemid = "";
+    }
+
+    $scope.addState = function(thing){
+      var stateId = $scope.newRoom.newstateid;
+      if(stateId == "" || !stateId){
+        return;
+      }
+      if(!thing.states){
+        thing.states = 
+        {
+          "default":{}
+        };
+        thing.current_state = "default";
+      }
+      thing.states[stateId] = {};
+      $scope.newRoom.newstate = "";
     }
      
     $scope.addExit = function(key){
