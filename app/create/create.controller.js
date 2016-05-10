@@ -4,6 +4,7 @@ angular.module('jsdungeon')
   .controller('CreateCtrl', function ($scope, $http, $location, JSDungeon) {
   	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
   	$scope.disabled = true; //Set all ng-disabled to true by default
+    $scope.getTriggerTypes = JSDungeon.getTriggerTypes;
 
     $scope.test = function(){
       $scope.saveTemplate();
