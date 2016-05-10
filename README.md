@@ -1,6 +1,6 @@
-# JsDungeon App
+# Bardic.io App
 
-App to build around JsDungeon game engine for creating and playing text adventures.
+App built around JsDungeon game engine for creating and playing text adventures.
 
 ## Build & Development ##
 
