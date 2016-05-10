@@ -69,7 +69,7 @@
 			</uib-accordion-heading>
 			<h3>Destination</h3>
 			<select class="form-control" ng-model="exit.destination">
-				<option ng-repeat="(key, room) in dungeon.rooms" value="{{key}}">{{room.name}}</option>
+				<option ng-repeat="(key, room) in dungeon.rooms" value="{{key}}">{{key}}</option>
 			</select>
 			<h3>Current State</h3>
 			<select class="form-control" ng-if="$parent.isOpen" ng-model="exit.current_state">
