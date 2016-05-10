@@ -21,7 +21,6 @@ angular.module('jsdungeon')
           var items = $scope.dungeon.rooms[room].items;
           for(var i=0;i<items.length;i++){
             var item = items[i];
-            console.log(item);
             var index = tems.indexOf(item);
             if(index >= 0){
               tems.splice(index, 1);
@@ -69,7 +68,7 @@ angular.module('jsdungeon')
     $scope.test = function(){
       $scope.saveTemplate();
       JSDungeon.setDungeon(JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate())));
-      $location.path("/play");
+      $location.path("/session");
     }
 
   	$scope.saveTemplate = function(){
@@ -100,6 +99,7 @@ angular.module('jsdungeon')
      */
     $scope.deleteThing = function(thing, key){
       delete thing[key];
+      updateFreeItems();
     }
 
     /* 
