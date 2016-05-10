@@ -12,13 +12,17 @@
 		<h3 uib-popover="The description you'll see when entering a room" 
 		popover-trigger="mouseenter">Description</h3>
 		<textarea rows="3" class="form-control" ng-model="room.description"></textarea>
-		<h3>Items 
+		<h3>Items in Room
 		<button class="btn btn-sm btn-warning pull-right" ng-click="disabled = !disabled">
 			<i class="glyphicon glyphicon-edit"></i>
 		</button></h3>
-		<select class="form-control" ng-if="$parent.isOpen" ng-model="room.items" ng-disabled="disabled" multiple>
-			<option ng-repeat="(itkey, room) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
-		</select><br>
+		<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="removeItemRoom(room)" multiple>
+			<option ng-repeat="item in room.items" value="{{item}}">{{item}}</option>
+		</select>
+		<h3>All items</h3>
+		<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="addItemRoom(room)" multiple>
+			<option ng-repeat="item in freeitems" value="{{item}}">{{item}}</option>
+		</select>
 		<h3 uib-popover="The objects in your room" popover-trigger="mouseenter">Objects</h3>
 		<uib-accordion-group ng-if="$parent.$parent.isOpen" heading="{{obkey}}" ng-repeat="(obkey, object) in room.objects" template-url="app/create/templates/accordioncustom.html">
 			<uib-accordion-heading>
