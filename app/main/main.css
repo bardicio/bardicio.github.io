@@ -1,0 +1,16 @@
+.hero{
+    background: url('https://images.unsplash.com/photo-1452215199360-c16ba37005fe') center center;
+    background-size: cover;
+}
+
+.trans{
+	background-color: rgba(78, 93, 108, 0.7);
+}
+
+.jumbotron-main{
+	margin-top: 21px;
+}
+
+.container-main{
+	margin-top: -21px;
+}

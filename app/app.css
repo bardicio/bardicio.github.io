@@ -27,10 +27,13 @@
     font-style: normal;
 }
 
+html, body{
+    height: 100%;
+}
+
 /**
  * App-wide Styles
  */
-
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
