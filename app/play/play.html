@@ -11,7 +11,7 @@
     <div class="col-md-10 col-md-offset-1">
 	  	<h2>Open locally</h2>
 			<div class="input-group">
-				<span class="btn btn-default btn-file">
+				<span class="btn btn-default btn-lg btn-file" uib-tooltip="Open an adventure from your computer!">
 				    Browse <input type="file" onchange="angular.element(this).scope().setFiles(this)" name="file">
 				</span>
 			</div>
@@ -24,11 +24,18 @@
 					</span>
 				</div>
 			</form>
-			<h2 ng-show="dungeon.name">{{dungeon.name}}</h2>
+			<h2>Can't Find Any?</h2>
+			<p><a uib-tooltip="Download our sample adventures" class="btn btn-primary btn-lg" href="https://github.com/bardicio/jsdungeon-examples/archive/master.zip">
+				Samples
+			</a></p>
+			<p>Extract the sample zip and load one up!</p>
+			<hr>
+			<h1>Preview</h1>
+			<h3 ng-show="dungeon.name">{{dungeon.name}}</h3>
 			<p>{{dungeon.intro_text}}</p><br>
-			<button class="btn btn-primary btn-lg" ng-click="startGame()">Start</button>
-			<a class="btn btn-success btn-lg" href="#/play">Continue</a>
-			<button class="btn btn-danger btn-lg" ng-click="newDungeon()">Create</button>
+			<button uib-tooltip="Start this dungeon" class="btn btn-primary btn-lg" ng-click="startGame()">Start</button>
+			<a uib-tooltip="Continue this dungeon where you left off" class="btn btn-success btn-lg" href="#/play">Continue</a>
+			<button uib-tooltip="Start from scratch" class="btn btn-danger btn-lg" ng-click="newDungeon()">Create</button>
 	  	</div>
     </div>
 </div>
