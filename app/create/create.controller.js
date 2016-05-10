@@ -31,6 +31,14 @@ angular.module('jsdungeon')
         }
     }
 
+    $scope.woo = function(e){
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+      console.log("Woo!");
+    }
+
     /* 
      * Adding new rooms, objects, etc. below
      */
@@ -53,6 +61,9 @@ angular.module('jsdungeon')
       var itemId = $scope.newRoom.newitemid;
       if(itemId == "" || !itemId){
         return;
+      }
+      if(!$scope.dungeon.items){
+        $scope.dungeon.items = {};
       }
       $scope.dungeon.items[itemId] = {};
       $scope.dungeon.items[itemId].states = 

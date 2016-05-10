@@ -1,14 +1,10 @@
-<div class="panel {{panelClass || 'panel-default'}}">
-  <div class="panel-heading">
-    <div class="panel-title">
-      <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
-        ng-class="{'text-muted': isDisabled}" class="panel-heading-custom">{{heading}}</span></a>
-      <button class="btn btn-danger btn-sm pull-right" ng-click="$parent.deleteRoom($parent.key)">
-        <i class="glyphicon glyphicon-trash"></i>
-      </button>
-    </div>
+<div class="panel" ng-class="panelClass || 'panel-default'">
+  <div role="tab" id="{{::headingId}}" aria-selected="{{isOpen}}" class="panel-heading" ng-keypress="toggleOpen($event)">
+    <h4 class="panel-title">
+      <div role="button" data-toggle="collapse" href aria-expanded="{{isOpen}}" aria-controls="{{::panelId}}" tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span uib-accordion-header ng-class="{'text-muted': isDisabled}">{{heading}}</span></div>
+    </h4>
   </div>
-  <div class="panel-collapse collapse" uib-collapse="!isOpen">
+  <div id="{{::panelId}}" aria-labelledby="{{::headingId}}" aria-hidden="{{!isOpen}}" role="tabpanel" class="panel-collapse collapse" uib-collapse="!isOpen">
     <div class="panel-body" ng-transclude></div>
   </div>
 </div>
