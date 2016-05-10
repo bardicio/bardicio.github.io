@@ -1,0 +1,20 @@
+#me-circle {
+    margin-top:50px;
+    width: 300px;
+    height: 300px;
+}
+
+.transition-show-hide {
+  padding:10px;
+  border:1px solid black;
+  background:white;
+}
+
+.transition-show-hide {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.transition-show-hide {
+  opacity:0;
+}

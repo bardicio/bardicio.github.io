@@ -13,6 +13,10 @@ angular.module('jsdungeon')
     {
       'title': 'Editor',
       'link': '#/create'
+    },
+    {
+      'title': 'Help',
+      'link': '#/help'
     }
     ];
 

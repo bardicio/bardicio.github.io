@@ -1,5 +1,6 @@
 {
     "name": "The Woods",
+    "author" : "Jacob",
     "background" : "img/woods.jpg",
     "intro_text": "You've heard stories of the woods near the old cement plant. You and a few friends decide to camp out there for the night to see what you can uncover.",
     "start_room": "camp site",
