@@ -2,16 +2,18 @@
 
 angular.module('jsdungeon')
   .controller('CreateCtrl', function ($scope, $http, JSDungeon) {
-  	$scope.dungeon = JSDungeon.getDungeonTemplate();
+  	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
   	$scope.disabled = true; //Set all ng-disabled to true by default
   	$scope.saveTemplate = function(){
   		JSDungeon.setDungeonTemplate($scope.dungeon);
   		$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
 		  JSDungeon.setDungeon($scope.dungeon);
   	}
-  	$scope.deleteRoom = function(key){
-  		delete $scope.dungeon.rooms[key];
+
+  	$scope.deleteThing = function(thing, key){
+  		delete thing[key];
   	}
+
     $scope.download = function() {
         var name = $scope.dungeon.name.toLowerCase();
         name = name.replace(" ", "_");
@@ -55,6 +57,23 @@ angular.module('jsdungeon')
       $scope.dungeon.rooms[roomid].objects = {};
       $scope.dungeon.rooms[roomid].exits = {};
       $scope.newRoom.newroomid = "";
+    }
+
+    $scope.addObject = function(room){
+      var objId = $scope.newRoom.newobjectid;
+      if(objId == "" || !objId){
+        return;
+      }
+      if(!$scope.dungeon.rooms[room].objects){
+        $scope.dungeon.rooms[room].objects = {};
+      }
+      $scope.dungeon.rooms[room].objects[objId] = {};
+      $scope.dungeon.rooms[room].objects[objId].states = 
+      {
+        "default":{}
+      };
+      $scope.dungeon.rooms[room].objects[objId].current_state = "default";
+      $scope.newRoom.newobjectid = "";
     }
     
     $scope.addItem = function(){

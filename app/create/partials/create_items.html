@@ -2,12 +2,22 @@
 	<uib-accordion-group ng-repeat="(key, item) in dungeon.items" template-url="app/create/templates/accordioncustom.html">
 		<uib-accordion-heading>
 			{{ key }}
-			<button class="btn btn-sm btn-danger pull-right" ng-click="woo($event)">
+			<button class="btn btn-sm btn-danger pull-right" ng-click="deleteThing(dungeon.items, key)">
 				<i class="glyphicon glyphicon-trash"></i>
 			</button>
 		</uib-accordion-heading>
+		<h3>Current State</h3>
+		<select class="form-control" ng-if="$parent.isOpen" ng-model="item.current_state">
+			<option ng-repeat="(stkey, state) in item.states" value="{{stkey}}">{{stkey}}</option>
+		</select><br>
 		<h3>States</h3>
-		<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states">
+		<uib-accordion-group heading="{{stkey}}" ng-repeat="(stkey, state) in item.states" template-url="app/create/templates/accordioncustom.html">
+			<uib-accordion-heading>
+				{{ stkey }}
+				<button class="btn btn-sm btn-danger pull-right" ng-click="deleteThing(item.states, stkey)">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+			</uib-accordion-heading>
 			<h4>Description</h4>
 			<textarea class="form-control" ng-model="state.description"></textarea>
 			<h4>Examination</h4>
