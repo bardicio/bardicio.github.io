@@ -1,17 +1,18 @@
 'use strict';
 
 angular.module('jsdungeon')
-  .controller('CreateCtrl', function ($scope, $http, JSDungeon) {
+  .controller('CreateCtrl', function ($scope, $http, $location, JSDungeon) {
   	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
   	$scope.disabled = true; //Set all ng-disabled to true by default
-  	$scope.saveTemplate = function(){
-  		JSDungeon.setDungeonTemplate($scope.dungeon);
-  		$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
-		  JSDungeon.setDungeon($scope.dungeon);
-  	}
 
-  	$scope.deleteThing = function(thing, key){
-  		delete thing[key];
+    $scope.test = function(){
+      $scope.saveTemplate();
+      JSDungeon.setDungeon(JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate())));
+      $location.path("/play");
+    }
+
+  	$scope.saveTemplate = function(){
+  		JSDungeon.setDungeonTemplate(JSON.parse(JSON.stringify($scope.dungeon)));
   	}
 
     $scope.download = function() {
@@ -33,12 +34,11 @@ angular.module('jsdungeon')
         }
     }
 
-    $scope.woo = function(e){
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-      console.log("Woo!");
+    /*
+     * Delete things
+     */
+    $scope.deleteThing = function(thing, key){
+      delete thing[key];
     }
 
     /* 
