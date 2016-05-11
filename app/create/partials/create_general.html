@@ -15,20 +15,20 @@
 			<option ng-repeat="(rmkey, room) in dungeon.rooms" value="{{rmkey}}">{{room.name}}</option>
 		</select>
 		<br>
-		<uib-accordion-group heading="Player">
-			<h3>Name</h3>
-			<input type="text" class="form-control" ng-model="dungeon.player.name">
-			<h3>Description</h3>
-			<textarea rows="5" type="text" class="form-control" ng-model="dungeon.player.description"></textarea>
-			<h4>Available Items</h4>
-			<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="addItemInventory()" multiple>
-				<option ng-repeat="item in freeitems" value="{{item}}">{{item}}</option>
-			</select>
-			<h3>Inventory</h3>
-			<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="removeItemInventory()" multiple>
-				<option ng-repeat="item in dungeon.player.inventory" value="{{item}}">{{item}}</option>
-			</select>
+	</uib-accordion-group>
+	<uib-accordion-group heading="Player">
+		<h3>Name</h3>
+		<input type="text" class="form-control" ng-model="dungeon.player.name">
+		<h3>Description</h3>
+		<textarea rows="5" type="text" class="form-control" ng-model="dungeon.player.description"></textarea>
+		<h4>Available Items</h4>
+		<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="addItemInventory()" multiple>
+			<option ng-repeat="item in freeitems" value="{{item}}">{{item}}</option>
+		</select>
+		<h3>Inventory</h3>
+		<select class="form-control" ng-if="$parent.isOpen" ng-model="selecteditem.items" ng-change="removeItemInventory()" multiple>
+			<option ng-repeat="item in dungeon.player.inventory" value="{{item}}">{{item}}</option>
+		</select>
 
-		</uib-accordion-group>
 	</uib-accordion-group>
 </uib-accordion>
