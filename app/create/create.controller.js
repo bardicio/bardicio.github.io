@@ -173,6 +173,7 @@ angular.module('jsdungeon')
         "default":{}
       };
       $scope.dungeon.rooms[room].objects[objId].current_state = "default";
+      initTriggers($scope.dungeon.rooms[room].objects[objId].current_state.triggers);
       $scope.newRoom.newobjectid = "";
     }
     
@@ -190,6 +191,7 @@ angular.module('jsdungeon')
         "default":{}
       };
       $scope.dungeon.items[itemId].current_state = "default";
+      initTriggers($scope.dungeon.items[itemId].current_state.triggers);
       $scope.newRoom.newitemid = "";
     }
 
@@ -206,6 +208,7 @@ angular.module('jsdungeon')
         thing.current_state = "default";
       }
       thing.states[stateId] = {};
+      initTriggers(thing.states[stateId].triggers);
       $scope.newRoom.newstate = "";
     }
      
@@ -223,6 +226,15 @@ angular.module('jsdungeon')
         "default":{}
       };
       $scope.dungeon.rooms[key].exits[exitID].current_state = "default";
+      initTriggers($scope.dungeon.rooms[key].exits[exitID].current_state);
       $scope.newRoom.newexitid = "";
+    }
+    
+    
+    $scope.initTriggers = function(object){
+      object.on_use.triggers = [];
+      object.on_enter.triggers = [];
+      object.on_talk.triggers = [];
+      object.on_examine.triggers = [];
     }
   });
