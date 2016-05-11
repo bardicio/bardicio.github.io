@@ -7,10 +7,15 @@ angular.module('jsdungeon')
   .factory('JSDungeon', function () {
     var dungeon = {};
     var dungeonTemplate = {};
+    var trigger_types = ["remove_item", "add_item", "flavor_text"];
 
     var dungeonStore = localStorage.getItem("dungeon");
     if(dungeonStore){
         dungeon = JSON.parse(dungeonStore);
+    }
+
+    var getTriggerTypes = function(){
+        return trigger_types;
     }
 
     var dungeonTemplateStore = localStorage.getItem("dungeonTemplate");
@@ -46,6 +51,7 @@ angular.module('jsdungeon')
         setDungeon : setDungeon,
         setDungeonTemplate : setDungeonTemplate,
         getDungeonTemplate : getDungeonTemplate,
+        getTriggerTypes : getTriggerTypes,
         interact : interact
     };
   });

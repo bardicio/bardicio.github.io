@@ -1,20 +1,16 @@
-#me-circle {
-    margin-top:50px;
-    width: 300px;
-    height: 300px;
+.hero{
+    background: url('https://images.unsplash.com/photo-1452215199360-c16ba37005fe') center center;
+    background-size: cover;
 }
 
-.transition-show-hide {
-  padding:10px;
-  border:1px solid black;
-  background:white;
+.trans{
+	background-color: rgba(78, 93, 108, 0.7);
 }
 
-.transition-show-hide {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+.jumbotron-main{
+	margin-top: 21px;
 }
 
-.transition-show-hide {
-  opacity:0;
+.container-main{
+	margin-top: -21px;
 }

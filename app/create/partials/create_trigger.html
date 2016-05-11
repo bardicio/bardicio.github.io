@@ -1,0 +1,8 @@
+<div ng-if="trigger.trigger_type == 'remove_item'">
+	<h4>Target Item</h4>
+	<select class="form-control" ng-model="trigger.target_item">
+		<option ng-repeat="(itkey, item) in dungeon.items" value="{{itkey}}">{{itkey}}</option>
+	</select>
+	<h4>Description</h4>
+	<textarea rows="3" class="form-control" ng-model="trigger.description"></textarea>
+</div>

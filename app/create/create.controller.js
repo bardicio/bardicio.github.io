@@ -4,11 +4,71 @@ angular.module('jsdungeon')
   .controller('CreateCtrl', function ($scope, $http, $location, JSDungeon) {
   	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
   	$scope.disabled = true; //Set all ng-disabled to true by default
+    $scope.getTriggerTypes = JSDungeon.getTriggerTypes;
+    $scope.selecteditem = {
+      items:[]
+    };
+
+    $scope.getFreeItems = function(){
+      var tems = [];
+      for (var item in $scope.dungeon.items) {
+        if ($scope.dungeon.items.hasOwnProperty(item)) {
+          tems.push(item);
+        }
+      }
+      for (var room in $scope.dungeon.rooms){
+        if($scope.dungeon.rooms[room].items){
+          var items = $scope.dungeon.rooms[room].items;
+          for(var i=0;i<items.length;i++){
+            var item = items[i];
+            var index = tems.indexOf(item);
+            if(index >= 0){
+              tems.splice(index, 1);
+            }
+          }
+        }
+      }
+      return tems;
+    }
+
+    var updateFreeItems = function(){
+      $scope.$evalAsync(function(scope) {
+        $scope.freeitems = $scope.getFreeItems();
+      });
+    }
+
+    //Populate free items once
+    updateFreeItems();
+
+    $scope.addItemRoom = function(room){
+      var item = $scope.selecteditem.items[0];
+      if(item){
+        if(!room.items){
+          room.items = [];
+        }
+        room.items.push($scope.selecteditem.items[0]);
+      }
+      $scope.selecteditem.items = [];
+      updateFreeItems();
+    }
+
+    $scope.removeItemRoom = function(room){
+      var item = $scope.selecteditem.items[0];
+      if(item){
+        if(!room.items){
+          room.items = [];
+        }
+        var index = room.items.indexOf($scope.selecteditem.items[0]);
+        room.items.splice(index, 1);
+      }
+      $scope.selecteditem.items = [];
+      updateFreeItems();
+    }
 
     $scope.test = function(){
       $scope.saveTemplate();
       JSDungeon.setDungeon(JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate())));
-      $location.path("/play");
+      $location.path("/session");
     }
 
   	$scope.saveTemplate = function(){
@@ -39,6 +99,7 @@ angular.module('jsdungeon')
      */
     $scope.deleteThing = function(thing, key){
       delete thing[key];
+      updateFreeItems();
     }
 
     /* 

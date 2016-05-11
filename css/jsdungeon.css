@@ -3,10 +3,13 @@
     background-color: #2C3133;
 }
 
-.navbar-brand{
-	padding-top: 20px;
-	padding-bottom: 20px;
-	font-size: 18px;
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .navbar-brand{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 18px;
+    }
 }
 
 .navbar-nav>li>a{

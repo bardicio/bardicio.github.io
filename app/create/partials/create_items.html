@@ -22,6 +22,22 @@
 			<textarea class="form-control" ng-model="state.description"></textarea>
 			<h4>Examination</h4>
 			<textarea class="form-control" ng-model="state.examination"></textarea>
+			<h4>On-Use</h4>
+			<uib-accordion-group ng-repeat="trigger in state.on_use.triggers" template-url="app/create/templates/accordioncustom.html">
+				<uib-accordion-heading>
+					trigger {{ $index }}
+					<button class="btn btn-sm btn-danger pull-right" ng-click="deleteThing(item.states, stkey)">
+						<i class="glyphicon glyphicon-trash"></i>
+					</button>
+				</uib-accordion-heading>
+				<h4>Trigger Type</h4>
+				<select class="form-control" ng-model="trigger.trigger_type">
+					<option ng-repeat="trigger_type in getTriggerTypes()" value="{{trigger_type}}">
+						{{trigger_type}}
+					</option>
+				</select>
+				<div ng-include="'app/create/partials/create_trigger.html'"></div>
+			</uib-accordion-group>
 		</uib-accordion-group>
 		<uib-accordion-group template-url="app/create/templates/accordionaddnew.html">
 			<form ng-submit="addState(item); $parent.isOpen = !$parent.isOpen">
