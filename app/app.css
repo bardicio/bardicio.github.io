@@ -31,6 +31,10 @@ html, body{
     height: 100%;
 }
 
+.row-padded{
+    padding-top: 20px;
+}
+
 /**
  * App-wide Styles
  */
