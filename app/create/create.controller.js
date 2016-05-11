@@ -16,6 +16,19 @@ angular.module('jsdungeon')
           tems.push(item);
         }
       }
+      
+      
+      var inventoryItems = $scope.dungeon.player.inventory;
+      for(var i in inventoryItems){
+        var item = inventoryItems[i];
+        var index = tems.indexOf(item);
+        if(index >= 0){
+          tems.splice(index,1);
+        }
+        
+      }
+      
+      
       for (var room in $scope.dungeon.rooms){
         if($scope.dungeon.rooms[room].items){
           var items = $scope.dungeon.rooms[room].items;
@@ -39,6 +52,32 @@ angular.module('jsdungeon')
 
     //Populate free items once
     updateFreeItems();
+    
+    $scope.addItemInventory = function(){
+      var item = $scope.selecteditem.items[0];
+      if(item){
+        if(!$scope.dungeon.player.inventory){
+          $scope.dungeon.player.inventory = [];
+        }
+        $scope.dungeon.player.inventory.push($scope.selecteditem.items[0]);
+      }
+      $scope.selecteditem.items = [];
+      updateFreeItems();
+    }
+    
+    $scope.removeItemInventory = function(){
+      var item = $scope.selecteditem.items[0];
+      if(item){
+        if(!$scope.dungeon.player.inventory){
+          $scope.dungeon.player.inventory = [];
+        }
+        var index = $scope.dungeon.player.inventory.indexOf($scope.selecteditem.items[0]);
+        $scope.dungeon.player.inventory.splice(index, 1);
+      }
+      $scope.selecteditem.items = [];
+      updateFreeItems();
+    }
+    
 
     $scope.addItemRoom = function(room){
       var item = $scope.selecteditem.items[0];
