@@ -7,7 +7,7 @@ angular.module('jsdungeon')
     $scope.schema = {
       "type": "object",
       "properties": {
-        "people": {
+        "rooms": {
           "type": "array",
           "items": {
             "type": "object",
@@ -40,9 +40,9 @@ angular.module('jsdungeon')
         },
         add: "Add person",
         items: [
-          "people[].nick",
-          "people[].name",
-          "people[].choice"
+          "rooms[].nick",
+          "rooms[].name",
+          "rooms[].choice"
         ]
       },
       {
@@ -57,7 +57,7 @@ angular.module('jsdungeon')
           "nick" : "test"
         },
         {
-          "nick" : "test"
+          "nick" : "eyy"
         }
       ]
     };
