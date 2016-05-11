@@ -1,5 +1,5 @@
 <uib-accordion close-others="false" ng-if="$parent.$parent.$parent.active === $parent.$parent.index">
-	<uib-accordion-group ng-repeat="(key, item) in dungeon.items" template-url="app/create/templates/accordioncustom.html">
+	<uib-accordion-group ng-repeat="(key, item) in dungeon.items | limitTo:pageSize:currentPage*pageSize" template-url="app/create/templates/accordioncustom.html">
 		<uib-accordion-heading>
 			{{ key }}
 			<button class="btn btn-sm btn-danger pull-right" ng-click="deleteThing(dungeon.items, key)">
@@ -40,3 +40,4 @@
 		</form>
 	</uib-accordion-group>
 </uib-accordion>
+<uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-link-numbers="true" rotate="false"></uib-pagination>

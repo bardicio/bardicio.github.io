@@ -8,26 +8,11 @@
   </div>
   <div class="row">
   	<div class="col-md-offset-1 col-md-10">
-  		<uib-tabset class="create-tab" type="pills">
-  			<uib-tab index="0" heading="General">
-  				<div ng-include="'app/create/partials/create_general.html'"></div>
-  			</uib-tab>
-  			<uib-tab index="1" heading="Rooms">
-  				<div ng-include="'app/create/partials/create_rooms.html'"></div>
-  			</uib-tab>
-  			<uib-tab index="2" heading="Items">
-  				<div ng-include="'app/create/partials/create_items.html'"></div>
-  			</uib-tab>
-  		</uib-tabset>
-      <button class="btn btn-danger btn-lg" ng-click="test()">
-      <i class="glyphicon glyphicon-play-circle"></i> Test
-      </button>
-  		<button class="btn btn-success btn-lg" ng-click="saveTemplate()">
-  		<i class="glyphicon glyphicon-floppy-saved"></i> Save
-  		</button>
-  		<button class="btn btn-warning btn-lg" ng-click="download()">
-  		<i class="glyphicon glyphicon-floppy-save"></i> Download
-  		</button>
+    <form name="myForm"
+          sf-schema="schema"
+          sf-form="form"
+          sf-model="model"
+          ng-submit="onSubmit(myForm)"></form>
   	</div>
   </div>
 </div>

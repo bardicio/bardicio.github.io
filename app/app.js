@@ -8,7 +8,8 @@ angular.module('jsdungeon', [
   'ui.bootstrap',
   'angulartics',
   'angulartics.google.analytics',
-  'luegg.directives'
+  'luegg.directives',
+  'schemaForm'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
