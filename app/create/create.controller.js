@@ -7,47 +7,40 @@ angular.module('jsdungeon')
     $scope.schema = {
       "type": "object",
       "properties": {
-        "rooms": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": { 
-                "type": "string" 
-              },
-              "nick": { 
-                "type": "string" 
-              },
-              "choice": {
-                type: "string",
-                enum: ["one","two"]
-              }
-            }
-          }
-        }
+        "name": { 
+          "type": "string" 
+        },
+        "eyy": { 
+          "type": "string" 
+        },
+        "nope": { 
+          "type": "string" 
+        },
       }
     };
 
     $scope.form = [
       {
-        type: "tabarray",
-        tabType: "top",
-        title: "{{value.nick || ('Tab '+$index)}}",
-        key: "people",
-        remove: "Delete",
-        style: {
-          remove: "btn-danger"
-        },
-        add: "Add person",
-        items: [
-          "rooms[].nick",
-          "rooms[].name",
-          "rooms[].choice"
+        type: "tabs",
+        tabs: [
+          {
+            title: "Tab 1",
+            items: [
+              "name",
+              {
+                "key" : "eyy",
+                "type" : "textarea",
+                "placeholder": "So much space!"
+              }
+            ]
+          },
+          {
+            title: "Tab 2",
+            items: [
+              "nope"
+            ]
+          }
         ]
-      },
-      {
-        type: "submit",
-        title: "Save"
       }
     ];
 
