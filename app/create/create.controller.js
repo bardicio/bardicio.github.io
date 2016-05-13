@@ -53,13 +53,54 @@ angular.module('jsdungeon')
         console.log($scope.model);
       }
     }
+    
+    function getRooms(){
+      var rooms = [];
+      if($scope.dungeon && $scope.dungeon.rooms){
+        var i = 0;
+        for(var room in $scope.dungeon.rooms){
+            rooms.push({
+              "label":room,
+              "type":"room",
+              "id":i,
+              "collapsed":true,
+              "children":
+              [
+                {"label":"exits","id":"exits", "collapsed":true,"children":[]},
+                {"label":"objects","id":"objects", "collapsed":true,"children":[]}
+              ]
+            });
+            i++;
+        }
+      }
+      return(rooms)
+    }
+    
+    function getItems(){
+      var items = [];
+      if($scope.dungeon && $scope.dungeon.items){
+        var i = 0;
+        for(var item in $scope.dungeon.items){
+          items.push({
+            "label":item,
+            "type":"item",
+            "id":i,
+            "collapsed":true,
+            "children":[]
+          })
+        }
+      }
+      return(items)
+    }
+    
+
 
 
     //test tree model 1
     $scope.roleList1 = 
     [
-      {"label":"Rooms","id":"rooms", "children":[]},
-      {"label":"Items","id":"items","children":[]},
-      {"label":"Player","id":"player","children":[]}
+      {"label":"Rooms","id":"rooms", "collapsed":true, "children":getRooms()},
+      {"label":"Items","id":"items", "collapsed":true,"children":getItems()},
+      {"label":"Player","id":"player", "collapsed":true,"children":[]}
     ];
   });
