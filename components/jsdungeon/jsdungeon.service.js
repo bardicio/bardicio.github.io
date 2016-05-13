@@ -45,6 +45,30 @@ angular.module('jsdungeon')
         return jsdungeon.interact(somestring);
     }
     
+    //Switch statement that returns whatever form type is wanted
+    var forms = function(type){
+      switch(type){
+        case "default":
+          var form =  { 
+            "type": "object",
+                "properties": {
+                  "name": { 
+                    "type": "string" 
+                  },
+                  "eyy": { 
+                    "type": "string" 
+                  },
+                  "nope": { 
+                    "type": "string" 
+                  },
+                }
+          }
+          return form
+          break
+        
+      }
+    }
+    
     // Public API here
     return {
         getDungeon : getDungeon,
@@ -52,6 +76,7 @@ angular.module('jsdungeon')
         setDungeonTemplate : setDungeonTemplate,
         getDungeonTemplate : getDungeonTemplate,
         getTriggerTypes : getTriggerTypes,
-        interact : interact
+        interact : interact,
+        forms: forms
     };
   });
