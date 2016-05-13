@@ -1,7 +1,33 @@
+
+
 .create-tab h3{
 	margin-top: 5px;
 }
 
 .create-tab h4{
 	margin-top: 5px;
+}
+
+div[data-tree-model] li .expanded {
+  background-image: none;
+}
+div[data-tree-model] li .expanded:before {
+	content:"\f107";
+	font-family:FontAwesome;
+}
+
+
+
+
+div[data-tree-model] li .collapsed {
+  background-image: none;
+}
+div[data-tree-model] li .collapsed:before {
+	content:"\f105";
+	font-family:"FontAwesome";
+}
+
+
+div[data-tree-model] li .normal {
+  background-image: none;
 }
