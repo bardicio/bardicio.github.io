@@ -44,9 +44,37 @@ angular.module('jsdungeon')
     var interact = function(somestring){
         return jsdungeon.interact(somestring);
     }
+
+    var forms = function(type){
+      switch(type){
+        case "default":
+        var form = {
+          type: "tabs",
+          tabs: [
+            {
+              title: "Tab 1",
+              items: [
+                "name",
+                {
+                  "key" : "eyy",
+                  "type" : "textarea",
+                  "placeholder": "So much space!"
+                }
+              ]
+            },
+            {
+              title: "Tab 2",
+              items: [
+                "nope"
+              ]
+            }
+          ]
+        }
+      }
+    }
     
     //Switch statement that returns whatever form type is wanted
-    var forms = function(type){
+    var schemas = function(type){
       switch(type){
         case "default":
           var form =  { 
@@ -64,8 +92,6 @@ angular.module('jsdungeon')
                 }
           }
           return form
-          break
-        
       }
     }
     

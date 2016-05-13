@@ -11,7 +11,8 @@ angular.module('jsdungeon')
                 controller: 'CreateCtrl'
               },
               'sidebar@create' : { 
-                templateUrl: 'app/create/views/sidebar.html'
+                templateUrl: 'app/create/views/sidebar.html',
+                controller: 'TreeCtrl'
               },
               'main@create' : { 
                 templateUrl: 'app/create/views/main.html'
