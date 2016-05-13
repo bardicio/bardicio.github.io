@@ -66,8 +66,8 @@ angular.module('jsdungeon')
               "collapsed":true,
               "children":
               [
-                {"label":"exits","id":"exits", "collapsed":true,"children":[]},
-                {"label":"objects","id":"objects", "collapsed":true,"children":[]}
+                {"label":"exits","id":"exits", "collapsed":true,"children":getExits(room)},
+                {"label":"objects","id":"objects", "collapsed":true,"children":getObjects(room)}
               ]
             });
             i++;
@@ -93,6 +93,40 @@ angular.module('jsdungeon')
       return(items)
     }
     
+    function getObjects(room){
+      var objects = [];
+      if($scope.dungeon.rooms[room].objects){
+        var i = 0;
+        for(var object in $scope.dungeon.rooms[room].objects){
+          objects.push({
+            "label":object,
+            "type":"object",
+            "id":i,
+            "collapsed":true,
+            "children":[]
+          });
+          i++;
+        }
+      }
+      return(objects)
+    }
+    function getExits(room){
+      var exits = [];
+      if($scope.dungeon.rooms[room].exits){
+        var i = 0;
+        for(var exit in $scope.dungeon.rooms[room].exits){
+          exits.push({
+            "label":exit,
+            "type":"exit",
+            "id":i,
+            "collapsed":true,
+            "children":[]
+          });
+          i++;
+        }
+      }
+      return(exits)
+    }
 
 
 
