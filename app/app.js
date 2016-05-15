@@ -10,7 +10,7 @@ angular.module('jsdungeon', [
   'angulartics.google.analytics',
   'luegg.directives',
   'schemaForm',
-  'angularTreeview'
+  'directive.sidebar'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

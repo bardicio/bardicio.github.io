@@ -53,7 +53,7 @@ angular.module('jsdungeon')
         console.log($scope.model);
       }
     }
-    
+    /*
     function getRooms(){
       var rooms = [];
       if($scope.dungeon && $scope.dungeon.rooms){
@@ -137,4 +137,5 @@ angular.module('jsdungeon')
       {"label":"Items","id":"items", "collapsed":true,"children":getItems()},
       {"label":"Player","id":"player", "collapsed":true,"children":[]}
     ];
+    */
   });
