@@ -2,15 +2,14 @@ angular.module('directive.sidebar',[])
   .directive('sidebar', function(){
     return {
       restrict: 'E',
+      require: 'ngModel',
       scope: 
       {
         dungeon:"=",
-        ngModel : "=",
-        ngChange : "="
       },
       replace: true,
       templateUrl:"app/create/directives/sidebar.html",
-      link: function(scope,element, attrs){
+      link: function(scope,element, attrs, ctrl){
         
         scope.selected = function(event, name, obj){
           var path = [];
@@ -23,12 +22,13 @@ angular.module('directive.sidebar',[])
           }while(scope.pathHead(path[0]))
           
           if(name !== undefined){
-            scope.ngModel = 
+            var data = 
             {
               "name":name,
               "data":obj,
               "path":path
             };
+            ctrl.$setViewValue(data);
             //console.log(scope.ngModel)
             //scope.ngChange();
           }
