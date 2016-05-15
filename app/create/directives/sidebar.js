@@ -6,8 +6,8 @@ angular.module('directive.sidebar',[])
       {
         dungeon:"="
       },
-      //replace: true,
-      //templateUrl:"",
+      replace: true,
+      templateUrl:"app/create/directives/sidebar.html",
       controller: function($scope){
         //alert("hello");
         //console.log($scope.dungeon);
