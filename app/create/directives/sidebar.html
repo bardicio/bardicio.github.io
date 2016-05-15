@@ -1,13 +1,24 @@
 <div>
   <h2>sidebar</h2>
   <div>
+    <p>rooms</p>
     <div ng-repeat="(name,room) in dungeon.rooms">
-      <p>{{name}}</p>
+      <div>{{name}}</div>
+        <p>exits</p>
+        <div ng-repeat="(name,exit) in room.exits">
+          <div>{{name}}</div>
+        </div>
+        <p>objects</p>
+        <div ng-repeat="(name,object) in room.objects">
+          <div>{{name}}</div>
+        </div>
+        <br>
     </div>
   </div>
   <div>
+    <p>items</p>
     <div ng-repeat="(name,item) in dungeon.items">
-      <p>{{name}}</p>
+      <div>{{name}}</div>
     </div>
   </div>
 </div>
