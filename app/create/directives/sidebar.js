@@ -12,8 +12,10 @@ angular.module('directive.sidebar',[])
       link: function(scope,element, attrs, ctrl){
         
         scope.selected = function(event, name, obj){
+          
           var path = [];
-          var el = event.target;
+          el = event.target;
+          scope.updateSelect(el);
           do{
             if(el.childElementCount ===0){
               path.unshift(el.innerHTML);
@@ -28,9 +30,7 @@ angular.module('directive.sidebar',[])
               "data":obj,
               "path":path
             };
-            ctrl.$setViewValue(data);
-            //console.log(scope.ngModel)
-            //scope.ngChange();
+            ctrl.$setViewValue(data);// updates the ngmodel
           }
           
         };
@@ -43,6 +43,12 @@ angular.module('directive.sidebar',[])
             }
           }
           return true;
+        };
+        scope.updateSelect = function(el){
+          if(scope.prevEl){scope.prevEl.removeClass("selection");};
+          var elCur = angular.element(el);
+          elCur.addClass("selection");
+          scope.prevEl = elCur;
         }
         
       },

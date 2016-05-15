@@ -25,6 +25,9 @@ li{
 .node{
 	cursor:pointer;
 }
+.node.selection {
+    background-color: rgba(0,0,0,0.5);
+}
 
 
 div[data-tree-model] li .expanded {
