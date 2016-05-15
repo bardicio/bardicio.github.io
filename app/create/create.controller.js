@@ -4,34 +4,9 @@ angular.module('jsdungeon')
   .controller('CreateCtrl', function ($scope, $http, $location, JSDungeon) {
   	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
     
-    
-    
-    $scope.schema = JSDungeon.forms("default");//$scope.currentForm soon
+    $scope.schema = JSDungeon.schemas("default");//$scope.currentForm soon
 
-    $scope.form = [
-      {
-        type: "tabs",
-        tabs: [
-          {
-            title: "Tab 1",
-            items: [
-              "name",
-              {
-                "key" : "eyy",
-                "type" : "textarea",
-                "placeholder": "So much space!"
-              }
-            ]
-          },
-          {
-            title: "Tab 2",
-            items: [
-              "nope"
-            ]
-          }
-        ]
-      }
-    ];
+    //$scope.form = [JSDungeon.forms("default")];
 
     $scope.model = {
       people : [
@@ -53,6 +28,7 @@ angular.module('jsdungeon')
         console.log($scope.model);
       }
     }
+
     /*
     function getRooms(){
       var rooms = [];
@@ -138,4 +114,5 @@ angular.module('jsdungeon')
       {"label":"Player","id":"player", "collapsed":true,"children":[]}
     ];
     */
+
   });

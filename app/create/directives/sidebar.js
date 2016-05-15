@@ -2,11 +2,15 @@ angular.module('directive.sidebar',[])
   .directive('sidebar', function(){
     return {
       restrict: 'E',
-      //scope: {},
+      scope: 
+      {
+        dungeon:"="
+      },
       //replace: true,
       //templateUrl:"",
       controller: function($scope){
-        alert("hello");
+        //alert("hello");
+        //console.log($scope.dungeon);
       }
     };
     

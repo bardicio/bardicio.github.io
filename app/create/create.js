@@ -10,9 +10,6 @@ angular.module('jsdungeon')
                 templateUrl: 'app/create/create.html',
                 controller: 'CreateCtrl'
               },
-              'sidebar@create' : { 
-                templateUrl: 'app/create/views/sidebar.html'
-              },
               'main@create' : { 
                 templateUrl: 'app/create/views/main.html'
               }
