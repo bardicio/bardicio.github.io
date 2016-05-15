@@ -27,7 +27,13 @@ angular.module('jsdungeon')
       if (form.$valid) {
         console.log($scope.model);
       }
+    };
+    $scope.pick = function(selection){
+      console.log(selection);
     }
+    
+
+
 
     /*
     function getRooms(){

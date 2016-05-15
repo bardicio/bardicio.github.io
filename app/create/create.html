@@ -4,7 +4,9 @@
   <div class="row">
 
   	<div class="col-md-2">
-  		<sidebar dungeon="dungeon"></sidebar>
+  		<sidebar ng-model="selection"
+       dungeon="dungeon" 
+       ng-change="pick(selection)"></sidebar>
   	</div>
   	<div class="col-md-10">
     	<div ui-view="main"></div>

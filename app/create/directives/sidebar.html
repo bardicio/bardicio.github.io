@@ -1,24 +1,38 @@
 <div>
   <h2>sidebar</h2>
-  <div>
-    <p>rooms</p>
-    <div ng-repeat="(name,room) in dungeon.rooms">
-      <div>{{name}}</div>
-        <p>exits</p>
-        <div ng-repeat="(name,exit) in room.exits">
-          <div>{{name}}</div>
-        </div>
-        <p>objects</p>
-        <div ng-repeat="(name,object) in room.objects">
-          <div>{{name}}</div>
-        </div>
-        <br>
-    </div>
-  </div>
-  <div>
-    <p>items</p>
-    <div ng-repeat="(name,item) in dungeon.items">
-      <div>{{name}}</div>
-    </div>
-  </div>
+  
+  <ul class="sidebar-list">
+    <li>
+      <p class="node" ng-click="selected($event)">rooms</p>
+      <ul class="sidebar-list" ng-repeat="(name,room) in dungeon.rooms">
+        <li>
+          <p class="node" ng-click="selected($event ,name, room)">{{name}}</p>
+          <ul class="sidebar-list">
+            <li>
+              <p class="node" ng-click="selected($event)">exits</p>
+              <ul class="sidebar-list" ng-repeat="(name,exit) in room.exits">
+                <li><p class="node" ng-click="selected($event ,name, exit)">{{name}}</p></li>
+              </ul>
+            </li>
+            <li>
+              <p class="node" ng-click="selected($event)">objects</p>
+              <ul class="sidebar-list" ng-repeat="(name,object) in room.objects">
+                <li><p class="node" ng-click="selected($event ,name, object)">{{name}}</p></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p class="node" ng-click="selected($event)">items</p>
+      <ul class="sidebar-list" ng-repeat="(name,item) in dungeon.items">
+        <li><p class="node" ng-click="selected($event ,name, item)">{{name}}</p></li>
+      </ul>
+    </li>
+    <li>
+      <p href="" ng-click="selected($event, 'player',dungeon.player)">player</p>
+    </li>
+    
+  </ul>
 </div>

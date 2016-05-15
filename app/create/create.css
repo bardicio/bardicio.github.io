@@ -8,6 +8,25 @@
 	margin-top: 5px;
 }
 
+
+.sidebar-list {
+	list-style:none;
+	margin-left:0.1em;
+	padding-left:0.75em;
+}
+li, li>p{
+	margin:0px;
+	padding:0px;
+}
+li{
+	margin-top:0.1em;
+}
+
+.node{
+	cursor:pointer;
+}
+
+
 div[data-tree-model] li .expanded {
   background-image: none;
 }
