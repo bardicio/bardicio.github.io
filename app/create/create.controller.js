@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jsdungeon')
-  .controller('CreateCtrl', function ($scope, $http, $location, JSDungeon) {
+  .controller('CreateCtrl', function ($scope, $http, $location, $state, JSDungeon) {
   	$scope.dungeon = JSON.parse(JSON.stringify(JSDungeon.getDungeonTemplate()));
     
     $scope.schema = JSDungeon.schemas("default");//$scope.currentForm soon
@@ -29,12 +29,15 @@ angular.module('jsdungeon')
       }
     };
     $scope.pick = function(selection){
-      console.log(selection);
+      var path = selection.path;
+      var thingType = path[path.length-2];
+      var thing = path[path.length-1];
+      if(thingType === 'rooms'){
+        $state.go('create.editroom')
+      } else if(thingType === 'exits'){
+        $state.go('create.editexit')
+      }
     }
-    
-
-
-
     /*
     function getRooms(){
       var rooms = [];

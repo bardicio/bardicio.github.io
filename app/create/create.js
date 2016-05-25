@@ -9,14 +9,14 @@ angular.module('jsdungeon')
               '@' : {
                 templateUrl: 'app/create/create.html',
                 controller: 'CreateCtrl'
-              },
-              'main@create' : { 
-                templateUrl: 'app/create/views/main.html'
               }
             },
-          }).state('create.edit', {
-            url: '/edit',
-            templateUrl: 'app/create/views/topbar.html'
+          }).state('create.editroom', {
+            url: '/edit/room/:id',
+            templateUrl: 'app/create/views/editroom.html'
+          }).state('create.editexit', {
+            url: '/edit/room/:id',
+            templateUrl: 'app/create/views/editexit.html'
           })
 
   });

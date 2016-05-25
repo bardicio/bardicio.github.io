@@ -34,7 +34,6 @@ angular.module('directive.sidebar',[])
           }
           
         };
-        
         scope.pathHead = function(name){
           heads = ["rooms","items","player"];
           for(i in heads){
@@ -50,16 +49,10 @@ angular.module('directive.sidebar',[])
           elCur.addClass("selection");
           scope.prevEl = elCur;
         }
-        
       },
-      
       controller: function($scope){
         //alert("hello");
         //console.log($scope.dungeon);
-
-        
-        
-        
       },
 
     };
